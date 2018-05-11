@@ -24,6 +24,7 @@ def run_programs(properties):
     parameters = parseParameters(properties)
     input_path = "/data/input/"
     output_path = "/data/output/"
+    bowtie_output_path = "/tmp/"
     bowtie_path = "/bowtie_db/"
     kraken_output_file = "kraken.txt"
     bowtie_output_file = "bowtie.txt"
@@ -76,13 +77,13 @@ def run_programs(properties):
            
             # bowtie2
              bashCommand = "/app/bowtie2/bowtie2 -x %s -f -U %s --un %s --threads %s > /dev/null" %(bowtie_path + parameters['bowtie_db_files'], input_path + input_file,\
-	                                    output_path + bowtie_output_file, os.environ['BATCH_CPU'])
+	                                    bowtie_output_path + bowtie_output_file, os.environ['BATCH_CPU'])
 	
              os.system(bashCommand)
 
 
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db %s --threads %s --output %s" %(output_path + bowtie_output_file,\
+             bashCommand = "/app/kraken/kraken --db /kraken_db %s --threads %s --output %s" %(bowtie_output_path + bowtie_output_file,\
                                             os.environ['BATCH_CPU'],\
                                             output_path + kraken_output_file)
         
@@ -116,13 +117,13 @@ def run_programs(properties):
              # bowtie2
               # bowtie2
              bashCommand = "/app/bowtie2/bowtie2 -x %s -U %s --un %s --threads %s > /dev/null" %(bowtie_path + parameters['bowtie_db_files'], input_path + input_file,\
-	                                    output_path + bowtie_output_file, os.environ['BATCH_CPU'])
+	                                    bowtie_output_path + bowtie_output_file, os.environ['BATCH_CPU'])
 	
              os.system(bashCommand)
 
 
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input %s --threads %s --output %s" %(output_path + bowtie_output_file,\
+             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input %s --threads %s --output %s" %(bowtie_output_path + bowtie_output_file,\
                                             os.environ['BATCH_CPU'],\
                                             output_path + kraken_output_file)
         
@@ -157,14 +158,14 @@ def run_programs(properties):
              # bowtie2
              bashCommand = "/app/bowtie2/bowtie2 -x %s -1 %s -2 %s --un-conc %s --threads %s > /dev/null" %(bowtie_path + parameters['bowtie_db_files'], input_path + input_file, \
                                             input_path + input_file2,\
-	                                    output_path + bowtie_output_file, os.environ['BATCH_CPU'])
+	                                    bowtie_output_path + bowtie_output_file, os.environ['BATCH_CPU'])
 	
              os.system(bashCommand)
 
 
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input --paired %s %s --threads %s --output %s" %(output_path + bowtie_1,\
-                                            output_path + bowtie_2,\
+             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input --paired %s %s --threads %s --output %s" %(bowtie_output_path + bowtie_1,\
+                                            bowtie_output_path + bowtie_2,\
                                             os.environ['BATCH_CPU'],\
                                             output_path + kraken_output_file)
         

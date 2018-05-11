@@ -1,1 +1,1 @@
-{"input1": "A_1.fastq","input2": "A_2.fastq", "use_bowtie": "false", "bowtie_db_files": "hg18", "input_type": "PE"}
+{"input": "HiSeq_accuracy.fa", "use_bowtie": "true", "bowtie_db_files": "/h_sapiens/hg18", "input_type": "FASTA"}
