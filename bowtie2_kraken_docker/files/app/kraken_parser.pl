@@ -9,6 +9,8 @@ or die "Unable to open destination file $ARGV[1]\n";
 
 
 my %tax_count;
+my %tax_score;
+my $score;
 
 while (my $line = <IN>)   {
 
@@ -16,8 +18,21 @@ while (my $line = <IN>)   {
    if ($line =~ /\S/)   {
       my @elements = split ("\t", $line);
       my $column1 = $elements[2];
-      my $column2 = $elements[1];
-      $tax_count{$column1}++;
+      my $column3 = $elements[4];
+
+      
+
+
+      if ($column3 =~ /^P=(.....)/) {
+          $score = $1;
+         
+ 
+      
+          $tax_count{$column1}++;
+          $tax_score{$column1}+=$score;
+      
+      
+       }
    }
 }
 
@@ -27,7 +42,10 @@ close(IN);
 
 foreach my $key (keys %tax_count)  {
    
-    print OUT "$key" . "\t" . "$tax_count{$key}\n";
+    my $avg = $tax_score{$key}/$tax_count{$key};
+
+    print OUT "$key" . "\t" . "$tax_count{$key}" . "\t" . $avg . "\n";
+ 
 
 }
 
