@@ -27,7 +27,6 @@ def run_programs(properties):
     tmp_output_path = "/tmp/"
     bowtie_path = "/bowtie_db/"
     kraken_output_raw = "krak.txt"
-    kraken_output_file = "kraken.txt"
     bowtie_output_file = "bowtie.txt"
     bowtie_1 = "bowtie.1.txt"
     bowtie_2 = "bowtie.2.txt"
@@ -91,14 +90,11 @@ def run_programs(properties):
              os.system(bashCommand)
              
              # kraken scores
-             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + kraken_output_file)
+             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + input_file + final)
         
              os.system(bashCommand)
           
-             # kraken report
-             bashCommand = "perl /app/kraken_parser.pl %s %s" %(output_path + kraken_output_file, output_path + input_file + final)
-        
-             os.system(bashCommand)
+    
  
 
         else:
@@ -110,14 +106,11 @@ def run_programs(properties):
              os.system(bashCommand)
              
              # kraken scores
-             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + kraken_output_file)
+             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + input_file + final)
         
              os.system(bashCommand)
 
-             # kraken-report
-             bashCommand = "perl /app/kraken_parser.pl %s %s" %(output_path + kraken_output_file, output_path + input_file + final)
-        
-             os.system(bashCommand)
+         
 
 
     elif parameters['input_type'] == "SE":
@@ -141,14 +134,11 @@ def run_programs(properties):
              os.system(bashCommand)
              
               # kraken scores
-             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + kraken_output_file)
+             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + input_file + final)
         
              os.system(bashCommand)
           
-             # kraken report
-             bashCommand = "perl /app/kraken_parser.pl %s %s" %(output_path + kraken_output_file, output_path + input_file + final)
-        
-             os.system(bashCommand)
+             
  
 
         else:
@@ -160,14 +150,11 @@ def run_programs(properties):
              os.system(bashCommand)
              
              # kraken scores
-             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + kraken_output_file)
+             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + input_file + final)
         
              os.system(bashCommand)
 
-             # kraken-report
-             bashCommand = "perl /app/kraken_parser.pl %s %s" %(output_path + kraken_output_file, output_path + input_file + final)
-        
-             os.system(bashCommand)
+          
 
 
     elif parameters['input_type'] == "PE":
@@ -193,14 +180,11 @@ def run_programs(properties):
              os.system(bashCommand)
              
               # kraken scores
-             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + kraken_output_file)
+             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + input_file + final)
         
              os.system(bashCommand)
           
-             # kraken report
-             bashCommand = "perl /app/kraken_parser.pl %s %s" %(output_path + kraken_output_file, output_path + input_file + final)
-        
-             os.system(bashCommand)
+         
  
 
         else:
@@ -213,14 +197,11 @@ def run_programs(properties):
              os.system(bashCommand)
              
               # kraken scores
-             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + kraken_output_file)
+             bashCommand = "/app/kraken/kraken-filter --db /kraken_db %s > %s" %(tmp_output_path + kraken_output_raw, output_path + input_file + final)
         
              os.system(bashCommand)
 
-             # kraken-report
-             bashCommand = bashCommand = "perl /app/kraken_parser.pl %s %s" %(output_path + kraken_output_file, output_path + input_file + final)
-        
-             os.system(bashCommand)
+     
 
 
 
