@@ -83,7 +83,7 @@ def run_programs(properties):
 
 
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db %s --threads %s --output %s" %(tmp_output_path + bowtie_output_file,\
+             bashCommand = "/app/kraken/kraken --preload --db /kraken_db %s --threads %s --output %s" %(tmp_output_path + bowtie_output_file,\
                                             os.environ['BATCH_CPU'],\
                                             tmp_output_path + kraken_output_raw)
         
@@ -99,7 +99,7 @@ def run_programs(properties):
 
         else:
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db %s --threads %s --output %s" %(input_path + input_file,\
+             bashCommand = "/app/kraken/kraken --preload --db /kraken_db %s --threads %s --output %s" %(input_path + input_file,\
                                             os.environ['BATCH_CPU'],\
                                             tmp_output_path + kraken_output_raw)
         
@@ -127,7 +127,7 @@ def run_programs(properties):
 
 
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input %s --threads %s --output %s" %(tmp_output_path + bowtie_output_file,\
+             bashCommand = "/app/kraken/kraken --preload --db /kraken_db --fastq-input %s --threads %s --output %s" %(tmp_output_path + bowtie_output_file,\
                                             os.environ['BATCH_CPU'],\
                                             tmp_output_path + kraken_output_raw)
         
@@ -143,7 +143,7 @@ def run_programs(properties):
 
         else:
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input %s --threads %s --output %s" %(input_path + input_file,\
+             bashCommand = "/app/kraken/kraken --preload --db /kraken_db --fastq-input %s --threads %s --output %s" %(input_path + input_file,\
                                             os.environ['BATCH_CPU'],\
                                             tmp_output_path + kraken_output_raw)
         
@@ -172,7 +172,7 @@ def run_programs(properties):
 
 
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input --paired %s %s --threads %s --output %s" %(tmp_output_path + bowtie_1,\
+             bashCommand = "/app/kraken/kraken --preload --db /kraken_db --fastq-input --paired %s %s --threads %s --output %s" %(tmp_output_path + bowtie_1,\
                                             tmp_output_path + bowtie_2,\
                                             os.environ['BATCH_CPU'],\
                                             tmp_output_path + kraken_output_raw)
@@ -189,7 +189,7 @@ def run_programs(properties):
 
         else:
              # kraken    
-             bashCommand = "/app/kraken/kraken --db /kraken_db --fastq-input --paired %s %s --threads %s --output %s" %(input_path + input_file,\
+             bashCommand = "/app/kraken/kraken --preload --db /kraken_db --fastq-input --paired %s %s --threads %s --output %s" %(input_path + input_file,\
                                             input_path + input_file2,\
                                             os.environ['BATCH_CPU'],\
                                             tmp_output_path + kraken_output_raw)
